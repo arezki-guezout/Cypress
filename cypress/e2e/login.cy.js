@@ -3,7 +3,22 @@
 describe("Login to orange HRM", ()=>{
 
     beforeEach("visiter le lien", ()=>{
-        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+        const env_cible = Cypress.env("environment");
+        switch (env_cible) {
+            case "dev":
+                //mettre l'url de l'env de dev
+                url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+                break
+            case "prod":
+                //mettre l'url de l'env de prod
+                url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+                break
+            default:
+                //mettre l'url de l'env de dev
+                url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+                break
+        }
+        cy.visit(url)
     })
     context("scenario positif alpha", {tags: '@positive'}, ()=>{
         it("login success", ()=>{

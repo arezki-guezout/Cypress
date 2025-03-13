@@ -41,3 +41,9 @@
 
     - Cibler des tests en utilisant des noms de fichiers (specs):
       npx cypress run --spec "cypress/e2e/login.cy.js"
+
+    - Exercice:
+      ajouter une variable d'environnement pour lancer vos test dans un environnement de dev par exemple: 
+        npx cypress run --env environment=dev
+        npx cypress run --env environment=prod
+        npx cypress run //default dev

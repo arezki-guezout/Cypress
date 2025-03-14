@@ -65,3 +65,11 @@
     - Dans le fichier cypress/support/e2e.js, ajoutez la ligne suivante:
       - import 'cypress-mochawesome-reporter/register';
     - executez vos tests normalement (npx cypress run), vous trouverez le rapport index.html dans le dossier reports.
+
+  B- Sauvegarde de Screenshot et Vidéos:
+    - Dans le fichier cypress.config.js, ajoutez les lignes suivantes (dans le bloc e2e, mais avant la fonction setupNodeEvents): 
+      - video: true,
+      - screenshotsFolder: 'cypress/screenshots',
+      - videosFolder: 'cypress/videos',
+    - Lancez vos tests normalement, vous devriez voir une vidéos pour chaque test effectué, les screenshots sont enregistrée uniquement pour les tests échoué.
+    - ATTENTION: l'enregistrement vidéo ne se lance que lorsqu'on lance les tests en mode headless (sans navigateur ie npx cypress run). si vos tests sont lancé via navigateur (npx cypress open), l'enregistrement vidéo ne se lancera pas.

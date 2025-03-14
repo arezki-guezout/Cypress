@@ -15,5 +15,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+// import de la bibliotheque pour la manipulation des Tags
 const registerCypressGrep = require('@cypress/grep')
 registerCypressGrep()
+// importer la bibliotheque de generation de rapports mochawesome
+import 'cypress-mochawesome-reporter/register';

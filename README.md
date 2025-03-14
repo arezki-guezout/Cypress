@@ -54,3 +54,14 @@
     cy.fixture("Nom_fichier_sans_extension").then((iterateur) => { callback function })
       cy.fixture: fait appel au Jeux De Données "JDD" (ie notre fixture).
       then: attend que les données soit complétement chargé (retour d'une promesse JS)
+
+5- Géneration de rapports:
+  A- Avec Mochawsome:
+    DOC: https://www.npmjs.com/package/cypress-mochawesome-reporter
+    - installez le plugin via la commande: npm i --save-dev cypress-mochawesome-reporter
+    - Dans le fichier cypress.config.js ajoutez les lignes suivantes:
+      - reporter: 'cypress-mochawesome-reporter', (avant e2e{} -incluant la virgule-)
+      - require('cypress-mochawesome-reporter/plugin')(on); (dans la fonction setupNodeEvents, doit apparaitre avant return config)
+    - Dans le fichier cypress/support/e2e.js, ajoutez la ligne suivante:
+      - import 'cypress-mochawesome-reporter/register';
+    - executez vos tests normalement (npx cypress run), vous trouverez le rapport index.html dans le dossier reports.

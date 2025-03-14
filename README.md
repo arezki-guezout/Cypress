@@ -73,3 +73,19 @@
       - videosFolder: 'cypress/videos',
     - Lancez vos tests normalement, vous devriez voir une vidéos pour chaque test effectué, les screenshots sont enregistrée uniquement pour les tests échoué.
     - ATTENTION: l'enregistrement vidéo ne se lance que lorsqu'on lance les tests en mode headless (sans navigateur ie npx cypress run). si vos tests sont lancé via navigateur (npx cypress open), l'enregistrement vidéo ne se lancera pas.
+
+  C- Rapport avec Junit:
+    - DOC: https://docs.cypress.io/app/tooling/reporters
+    - Dans le fichier cypress.config.js: commentez les lignes:
+      - reporter: 'cypress-mochawesome-reporter',
+      - require('cypress-mochawesome-reporter/plugin')(on);
+    - ajoutez les lignes suivantes:
+      - reporter: 'junit',
+      - reporterOptions: {
+          mochaFile: 'cypress/reports/junit/my-test-output.xml',
+          toConsole: true,
+        },
+      - lancez vos tests normalement, vous trouverez un fichier xml dans cypress/reports/junit.
+      - ATTENTION: si vous avez plusieurs fichiers de tests, il y aura écrasement de chaque rapport de chaque tests.
+      - opérez la modification suivante:
+        - remplacez my-test-output.xml dans la ligne mochaFile par my-test-output-[hash].xml

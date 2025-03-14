@@ -47,3 +47,10 @@
         npx cypress run --env environment=dev
         npx cypress run --env environment=prod
         npx cypress run //default dev
+
+4- Utilisation des test parametriques (Fixtures):
+    - Dans le répertoire fixtures, créez un fichier de données au format JSON
+    - Dans vos tests, faites appel à ce fichier via l'instruction 
+    cy.fixture("Nom_fichier_sans_extension").then((iterateur) => { callback function })
+      cy.fixture: fait appel au Jeux De Données "JDD" (ie notre fixture).
+      then: attend que les données soit complétement chargé (retour d'une promesse JS)

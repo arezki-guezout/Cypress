@@ -56,7 +56,7 @@
       then: attend que les données soit complétement chargé (retour d'une promesse JS)
 
 # 5. Géneration de rapports:
-  A- Avec Mochawsome:
+  ## A- Avec Mochawsome:
     DOC: https://www.npmjs.com/package/cypress-mochawesome-reporter
     - installez le plugin via la commande: npm i --save-dev cypress-mochawesome-reporter
     - Dans le fichier cypress.config.js ajoutez les lignes suivantes:
@@ -66,7 +66,7 @@
       - import 'cypress-mochawesome-reporter/register';
     - executez vos tests normalement (npx cypress run), vous trouverez le rapport index.html dans le dossier reports.
 
-  B- Sauvegarde de Screenshot et Vidéos:
+  ## B- Sauvegarde de Screenshot et Vidéos:
     - Dans le fichier cypress.config.js, ajoutez les lignes suivantes (dans le bloc e2e, mais avant la fonction setupNodeEvents): 
       - video: true,
       - screenshotsFolder: 'cypress/screenshots',
@@ -74,7 +74,7 @@
     - Lancez vos tests normalement, vous devriez voir une vidéos pour chaque test effectué, les screenshots sont enregistrée uniquement pour les tests échoué.
     - ATTENTION: l'enregistrement vidéo ne se lance que lorsqu'on lance les tests en mode headless (sans navigateur ie npx cypress run). si vos tests sont lancé via navigateur (npx cypress open), l'enregistrement vidéo ne se lancera pas.
 
-  C- Rapport avec Junit:
+  ## C- Rapport avec Junit:
     - DOC: https://docs.cypress.io/app/tooling/reporters
     - Dans le fichier cypress.config.js: commentez les lignes:
       - reporter: 'cypress-mochawesome-reporter',

@@ -1,33 +1,33 @@
-1-  Installation de Cypress:
-    - executez la commande: npm install cypress --save-dev
+# 1.  Installation de Cypress:
+    - executez la commande: `npm install cypress --save-dev`
     - Le projet est pour le moment vide, passez à l'étape suivante pour la création de l'arborescence cypress.
-    - ouvrir cypress sur un navigateur: npx cypress open
-    - lancer les tests: npx cypress run
+    - ouvrir cypress sur un navigateur: `npx cypress open`
+    - lancer les tests: `npx cypress run`
 
-2- Création des tests:
+# 2. Création des tests:
     - Simple Test:
     - Dans le répertoire e2e, créez un fichier qui aura pour extension *.cy.js
-    - ajoutez en première ligne l'instruction: /// <reference types="cypress" />, celle-ci vous permettera d'avoir l'autocompletion.
+    - ajoutez en première ligne l'instruction: `/// <reference types="cypress" />`, celle-ci vous permettera d'avoir l'autocompletion.
     - Créez votre premier test de connexion sur orangehrm
     - executez votre test avec la commande npx cypress run.
     - Ajout d'un hook:
     - ajoutez deux contexts (scenario positif et scenario negatif), puis ajouter un hook beforeEach qui se connecte à orangehrm avant chaque test.
     - ré-ecrivez vos tests pour tenir compte de l'interaction avec le clavier (Tab pour passer d'un champ à un autre, et Entrée pour valider le formulaire)
 
-3- Utilisation des Tags:
-    - installer la dépendance suivante: npm i -D @cypress/grep
+# 3- Utilisation des Tags:
+    - installer la dépendance suivante: `npm i -D @cypress/grep`
     - Ajouter dans cypress/support/e2e.js:
-       const registerCypressGrep = require('@cypress/grep')
-       registerCypressGrep()
+       `const registerCypressGrep = require('@cypress/grep')
+       registerCypressGrep()`
     - Ajouter dans cypress.config.js:
-       {
+       `{
           e2e: {
             setupNodeEvents(on, config) {
                require('@cypress/grep/src/plugin')(config);
                return config;
             },
           }         
-        }
+        }`
     - Annotez vos tests comme ceci { tags: '@smoke' }
     - lancez vos tests via la commande: npx cypress run --env grepTags=@smoke
 
@@ -44,9 +44,11 @@
 
     - Exercice:
       ajouter une variable d'environnement pour lancer vos test dans un environnement de dev par exemple: 
+      <pre> ```
         npx cypress run --env environment=dev
         npx cypress run --env environment=prod
         npx cypress run //default dev
+        ``` </pre>
 
 4- Utilisation des test parametriques (Fixtures):
     - Dans le répertoire fixtures, créez un fichier de données au format JSON

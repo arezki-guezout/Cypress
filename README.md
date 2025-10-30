@@ -89,3 +89,9 @@ DOC: https://www.npmjs.com/package/cypress-mochawesome-reporter
 - ATTENTION: si vous avez plusieurs fichiers de tests, il y aura écrasement de chaque rapport de chaque tests.
 - opérez la modification suivante:
   - remplacez my-test-output.xml dans la ligne mochaFile par my-test-output-[hash].xml
+ 
+
+allure
+faire les installations de allure + les config depuis la doc de allure
+installer la commande `npm install -g allure-commandline` pour reconnaitre la commande allure
+et lancer la commande `allure serve allure-results` pour generer

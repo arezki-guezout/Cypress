@@ -91,7 +91,13 @@ DOC: https://www.npmjs.com/package/cypress-mochawesome-reporter
   - remplacez my-test-output.xml dans la ligne mochaFile par my-test-output-[hash].xml
  
 
-allure
-faire les installations de allure + les config depuis la doc de allure
-installer la commande `npm install -g allure-commandline` pour reconnaitre la commande allure
-et lancer la commande `allure serve allure-results` pour generer
+## D- Rapport avec Allure
+- Dans le fichier cypress.config.js, dans la fonction setupNodeEvent(), ajoutez la configuration suivante :
+```javascript
+allureCypress(on, config, {
+        resultsDir: "allure-results",
+      });
+```
+- Lancez vos tests avec la commande `npx cypress run`, vous verez un nouveau dossier <b>allure-results</b>
+- Installez la dépendance allure-commandline via la commande `npm install -g allure-commandline` pour reconnaitre la commande allure
+- Lancez la commande `allure serve allure-results` pour visualiser votre rapport
